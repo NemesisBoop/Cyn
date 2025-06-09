@@ -60,9 +60,7 @@ namespace Cyn
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
 
-            Console.Clear();
             Console.WriteLine("Prefix Commands Initialised!");
-            Console.WriteLine("Application Commands Initialised!");
             Console.WriteLine("Connected to Discord!");
 
             await Task.Delay(-1);
