@@ -3,7 +3,7 @@ using Discord.Interactions;
 
 namespace Cyn
 {
-    class Commands : InteractionModuleBase<SocketInteractionContext>
+    public class Commands : InteractionModuleBase<SocketInteractionContext>
     {
         [SlashCommand("ping", "replies with latency.")]
         public async Task Ping()
