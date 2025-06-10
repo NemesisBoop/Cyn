@@ -15,7 +15,7 @@ namespace Cyn
 
         [Command("addrole")]
         [RequireUserPermission(GuildPermission.ManageRoles)]
-        public async Task AddRoleAsync([Remainder] string roleName, IGuildUser targetUser)
+        public async Task AddRoleAsync(IGuildUser targetUser, [Remainder] string roleName)
         {
             var guild = Context.Guild;
             var role = guild.Roles.FirstOrDefault(r => r.Name.Equals(roleName, StringComparison.OrdinalIgnoreCase));
@@ -31,7 +31,7 @@ namespace Cyn
         }
         [Command("delrole")]
         [RequireUserPermission(GuildPermission.ManageRoles)]
-        public async Task DelRoleAsync([Remainder] string roleName, IGuildUser targetUser)
+        public async Task DelRoleAsync(IGuildUser targetUser, [Remainder] string roleName)
         {
             var guild = Context.Guild;
             var role = guild.Roles.FirstOrDefault(r => r.Name.Equals(roleName, StringComparison.OrdinalIgnoreCase));
@@ -67,7 +67,7 @@ namespace Cyn
 
             await targetUser.RemoveRoleAsync(DeniedRole);
             await targetUser.AddRoleAsync(AccessRole);
-            await ReplyAsync($"Unoormatted {targetUser.Mention}");
+            await ReplyAsync($"Undoormatted {targetUser.Mention}");
         }
         [Command("kick")]
         [RequireUserPermission(GuildPermission.KickMembers)]
